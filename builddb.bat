@@ -53,14 +53,15 @@ call :BuildDirectory "%script_directory%\Programmability\Defaults\*.sql" || goto
 call :BuildDirectory "%script_directory%\Programmability\Rules\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Programmability\Triggers\*.sql" || goto Done
-call :BuildDirectory "%script_directory%\Views\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Programmability\Functions\*.sql" || goto Done
-call :BuildDirectory "%script_directory%\Programmability\StoredProcedures\*.sql" || goto Done
+call :BuildDirectory "%script_directory%\Views\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\Constraints\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\PrimaryKeys\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\UniqueKeys\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\ForeignKeys\*.sql" || goto Done
 call :BuildDirectory "%script_directory%\Tables\Indexes\*.sql" || goto Done
+call :BuildDirectory "%script_directory%\Tables\FullTextIndexes\*.sql" || goto Done
+call :BuildDirectory "%script_directory%\Programmability\StoredProcedures\*.sql" || goto Done
 goto Success
 
 :BuildFile
