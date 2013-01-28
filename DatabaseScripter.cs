@@ -189,7 +189,7 @@ GO
             //            if (!Directory.Exists(primaryKeys)) Directory.CreateDirectory(primaryKeys);
             //            if (!Directory.Exists(triggers)) Directory.CreateDirectory(triggers);
             //            if (!Directory.Exists(data)) Directory.CreateDirectory(data);
-
+            so.DriUniqueKeys = false;
             foreach (Table table in db.Tables)
             {
                 if (!table.IsSystemObject)
@@ -201,6 +201,7 @@ GO
                         using (StreamWriter sw = GetStreamWriter(FileName, false))
                         {
                             if (verbose) Console.WriteLine("{0} Scripting {1}", db.Name, table.Name);
+
                             if (!_CreateOnly)
                             {
                                 so.ScriptDrops = so.IncludeIfNotExists = true;
@@ -229,7 +230,7 @@ GO
                                                      FixUpFileName(string.Format("{0}.{1}.sql", table.Name, smo.Name)));
                                 using (StreamWriter sw = GetStreamWriter(FileName, _TableOneFile))
                                 {
-                                    if (verbose) Console.WriteLine("{0] Scripting {1}.{2}", db.Name, table.Name, smo.Name);
+                                    if (verbose) Console.WriteLine("{0} Scripting {1}.{2}", db.Name, table.Name, smo.Name);
                                     if (!_CreateOnly)
                                     {
                                         so.ScriptDrops = so.IncludeIfNotExists = true;
