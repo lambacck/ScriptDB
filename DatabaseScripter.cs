@@ -145,6 +145,7 @@ GO
             so.Bindings = true;
             so.Permissions = _Permissions;
             so.NoCollation = _NoCollation;
+            so.Statistics = true;
             so.IncludeDatabaseContext = _IncludeDatabase;
 
             ScriptTables(verbose, db, so, outputDirectory, scriptData);
