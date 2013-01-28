@@ -174,6 +174,7 @@ GO
             string tables = Path.Combine(outputDirectory, "Tables");
             string programmability = Path.Combine(outputDirectory, "Programmability");
             string indexes = Path.Combine(tables, "Indexes");
+            string fullTextIndexes = Path.Combine(tables, "FullTextIndexes");
             string constraints = Path.Combine(tables, "Constraints");
             string foreignKeys = Path.Combine(tables, "ForeignKeys");
             string primaryKeys = Path.Combine(tables, "PrimaryKeys");
@@ -278,6 +279,31 @@ GO
                                         ScriptProperties((IExtendedProperties)smo, sw);
                                     }
                                 }
+                            }
+                        }
+
+                        #endregion
+
+                        #region Full Text Indexes
+
+                        if (table.FullTextIndex != null)
+                        {
+                            string dir = fullTextIndexes;
+                            if (!_TableOneFile)
+                                FileName =
+                                    Path.Combine(dir,
+                                                 FixUpFileName(string.Format("{0}.sql", table.Name)));
+                            using (StreamWriter sw = GetStreamWriter(FileName, _TableOneFile))
+                            {
+                                if (verbose) Console.WriteLine("Scripting Full Text Index for {0}", table.Name);
+                                if (!_CreateOnly)
+                                {
+                                    so.ScriptDrops = so.IncludeIfNotExists = true;
+                                    WriteScript(table.FullTextIndex.Script(so), sw);
+                                }
+                                so.ScriptDrops = so.IncludeIfNotExists = false;
+                                WriteScript(table.FullTextIndex.Script(so), sw);
+
                             }
                         }
 
