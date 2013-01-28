@@ -7,6 +7,6 @@ It will also (optionally) script the data using bcp.exe.
 
 You can also (optionally) specify to script the extended properties for each object along with the DDL.
 
-ScriptDB was originally written by Jesse Hersch of http://www.elsasoft.org. It's hosted at codeplex now for the benefit of the community.
+ScriptDB was originally written by Jesse Hersch of http://www.elsasoft.org.
 
-This version was updated for SQL Server 2008/2008R2 by Chris Lambacher.
+This version was updated from the version at http://scriptdb.codeplex.com/ codeplex for SQL Server 2008/2008R2 by Chris Lambacher. Also added was Full Text index scripting. Since the owners of the codeplex repo don't seem to be responding to patches I've put this up here to keep my changes in a public place.
