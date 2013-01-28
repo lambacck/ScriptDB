@@ -774,14 +774,6 @@ GO
         {
             foreach (string ss in script)
             {
-                if (ss == "SET QUOTED_IDENTIFIER ON" ||
-                    ss == "SET QUOTED_IDENTIFIER OFF" ||
-                    ss == "SET ANSI_NULLS ON" ||
-                    ss == "SET ANSI_NULLS OFF")
-                {
-                    continue;
-                }
-
                 string sss = ReplaceEx(ss, replaceMe, replaceWith);
                 sw.WriteLine(sss);
                 sw.WriteLine("GO\r\n");
@@ -792,14 +784,6 @@ GO
         {
             foreach (string ss in script)
             {
-                if (ss == "SET QUOTED_IDENTIFIER ON" ||
-                    ss == "SET QUOTED_IDENTIFIER OFF" ||
-                    ss == "SET ANSI_NULLS ON" ||
-                    ss == "SET ANSI_NULLS OFF")
-                {
-                    continue;
-                }
-
                 sw.WriteLine(ss);
                 sw.WriteLine("GO\r\n");
             }
